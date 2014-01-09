@@ -60,7 +60,7 @@ void ObjectCounter(){
 			//[s2,	, s1,    , s3       ]
 			
 			for (int k=0; k<height; k++){ //[weis>20, weis>20, schwarz<20] erst dann counter ++
-				int x1 = binaerMaske.at<uchar>(k,500);		// erste Schranke   Ausgang [300px	,400px	 ,500px      ] <--Eingang
+				int x1 = binaerMaske.at<uchar>(k,500);		// erste Schranke   Ausgang [300px ,400px, 500px] <--Eingang
 				int x2 = binaerMaske.at<uchar>(k,100);		// zweite Schranke 
 				int x3 = binaerMaske.at<uchar>(k,101);		// dritte Schranke muss Schwarz (Obejkt hat verlassen)
 						
