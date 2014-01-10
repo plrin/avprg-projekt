@@ -2,7 +2,7 @@
 using namespace std;
 using namespace cv;
 
-void ObjectCounter(){
+void objectCounter(){
 		int counter = 0; // Zähler
 		int frameNumber = 0;
 		bool isPressed= false; 
@@ -39,6 +39,8 @@ void ObjectCounter(){
 						imshow("CompareFrame", compareFrame);
 						isPressed = true; 
             }
+
+            //standbild wird gemacht
 			if(true==isPressed){
 				for(int x = 0; x < (width); x++){ // WICHTIG SIND EIGENTLICh NUR ETWA 50 PX (x=550)
 					for(int y = 0; y < height; y++){
@@ -59,6 +61,8 @@ void ObjectCounter(){
 			}// If zu Ende															 
 			//[s2,	, s1,    , s3       ]
 			
+
+			//Schranken werden hier überprüft
 			for (int k=0; k<height; k++){ //[weis>20, weis>20, schwarz<20] erst dann counter ++
 				int x1 = binaerMaske.at<uchar>(k,500);		// erste Schranke   Ausgang [300px ,400px, 500px] <--Eingang
 				int x2 = binaerMaske.at<uchar>(k,100);		// zweite Schranke 
@@ -89,7 +93,7 @@ void ObjectCounter(){
 				}
 			}
 			 
-			cout<< "S1:" <<s1 << " S2:" << s2 << " S3:" << s3 << " Frame"<< frameNumber <<endl; 
+			//cout<< "S1:" <<s1 << " S2:" << s2 << " S3:" << s3 << " Frame"<< frameNumber <<endl; 
 			if (s3 == true){
 				counter++; 
 				cout  <<counter<< endl; 
@@ -97,7 +101,9 @@ void ObjectCounter(){
 			}
 			//s1 = false; s2 = false; s3 = false;
 			s1Frame = 0; 
-			x1Anzahlw = 0; x2Anzahlw = 0; x3Anzahlw = 0;
+			x1Anzahlw = 0; 
+			x2Anzahlw = 0; 
+			x3Anzahlw = 0;
             imshow("WebCam2", videoFrame);
             imshow("Maske", binaerMaske);
  
@@ -106,5 +112,5 @@ void ObjectCounter(){
 
 
 int main(){
-	ObjectCounter(); 
+	objectCounter(); 
 }
